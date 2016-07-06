@@ -43,7 +43,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Who?</a>
+                <a id = "who" class="navbar-brand page-scroll" href="#page-top">Who?</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -88,8 +88,8 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Login</h2>
                     <hr class="light">
-                    <p class="text-faded">ID : <input type = "text" /></p>
-                    <a href="#Room" class="page-scroll btn btn-default btn-xl sr-button">Login</a>
+                    <p class="text-faded">ID : <input id = "loginTextBox" type = "text" style = "background-color:black;"/></p>
+                    <a id = "loginCheckButton" href="#Room" class="page-scroll btn btn-default btn-xl sr-button">Login</a>
                 </div>
             </div>
         </div>
@@ -306,7 +306,14 @@
 
     <!-- Theme JavaScript -->
     <script src="js/creative.min.js"></script>
-
+	<script>
+		var loginTextBox = $("#loginTextBox");
+		var loginCheckButton = $("#loginCheckButton");
+		var who = $("#who");
+		loginCheckButton.click(function(){
+			who.text(loginTextBox.val());
+		});
+	</script>
 </body>
 
 </html>
