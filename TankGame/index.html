@@ -106,15 +106,15 @@
         <div class = "container">
         	<div class = "row">
         		<div class="col-lg-6 col-md">
-        			<div class="list-group text-center">
+        			<div id = "room" class="list-group text-center">
         				<a class="list-group-item">first box</a> 
         				<a class="list-group-item">first box</a> 
         			</div>	
         		</div>
         		<div class="col-lg-3 col-md">
         			<h3>New Room</h3>
-        			<p class="text-faded">Room Name : <input type = "text" /></p>
-        			<a href="#services" class="page-scroll btn btn-default btn-xl sr-button">add</a>
+        			<p class="text-faded">Room Name : <input id = "newRoomName" style = "background-color:purple;" type = "text" /></p>
+        			<a id = 'addRoom' href="#Room" class="btn btn-default btn-xl sr-button">add</a>
         		</div>
         	</div>
         	<div>
@@ -303,16 +303,31 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
     <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
+	<script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
     <!-- Theme JavaScript -->
     <script src="js/creative.min.js"></script>
 	<script>
 		var loginTextBox = $("#loginTextBox");
 		var loginCheckButton = $("#loginCheckButton");
 		var who = $("#who");
+		var room = $("#room");
+		
+		var addRoom = $("#addRoom");
 		loginCheckButton.click(function(){
 			who.text(loginTextBox.val());
 		});
+		addRoom.click(function(){
+			var roomName = $("#newRoomName");
+			room.append("<a class='list-group-item'>"+ roomName.val() +"</a>");
+			roomName.val('');
+		});
+		 var config = {
+		apiKey: "AIzaSyBzyrR9yjSrmEvawxGQG2sgbrvHU-OEll8",
+		authDomain: "tankgamethunder.firebaseapp.com",
+		databaseURL: "https://tankgamethunder.firebaseio.com",
+		storageBucket: "tankgamethunder.appspot.com",
+		};
+		firebase.initializeApp(config);
 	</script>
 </body>
 
